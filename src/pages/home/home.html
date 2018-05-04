@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Starwars API
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="homeBg"> <!–– homebg css class ––>
+  <ion-img width="340" height="200" src="../assets/imgs/starlogo.png"></ion-img> <!–– Star wars logo image ––>
+  Choose an option
+  <!–– Buttons calling open methods ––>
+  <button ion-button block color="primary" (click)="openPeople()"> People</button>
+  <button ion-button block color="primary" (click)="openPlanets()"> Planets</button>
+  <button ion-button block color="primary" (click)="openShips()"> Spaceships</button>
+  <button ion-button block color="primary" (click)="openMore()"> Movies</button>
+  <ion-list *ngIf="buttonClicked"> <!–– Boolean if true will display ––>
+      <ion-item *ngFor="let data of swPeopleData" style="background-color: rgb(238, 238, 93)">
+        <h1>{{data.name}}</h1> <!–– displaying json data ––>
+        <p>Height: {{data.height}}</p>
+        <p>Gender: {{data.gender}}</p>
+        <p>Mass: {{data.mass}}</p>
+      </ion-item>
+    </ion-list>
+    <ion-list *ngIf="buttonClicked2">
+        <ion-item *ngFor="let data of swPlanetData" style="background-color: rgb(238, 238, 93)">
+          <h1>{{data.name}}</h1>
+          <p>Terrain: {{data.terrain}}</p>
+          <p>Population: {{data.population}}</p>
+        </ion-item>
+      </ion-list>
+      <ion-list *ngIf="buttonClicked3">
+          <ion-item *ngFor="let data of swShipData" style="background-color: rgb(238, 238, 93)">
+            <h1>{{data.name}}</h1>
+            <p>Passengers: {{data.passengers}}</p>
+            <p>Crew: {{data.crew}}</p>
+            <p>Length meters: {{data.length}}</p>
+            <p>Cargo capacity: {{data.cargo_capacity}}</p>
+            <p>Consumables: {{data.consumables}}</p>
+          </ion-item>
+        </ion-list>
+</ion-content>
